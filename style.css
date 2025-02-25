@@ -1,0 +1,182 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+}
+
+/* CSS Variables for Dark Theme */
+:root {
+    --primary: #1a1a1a;
+    --accent: #6200ee;
+    --text: #f3f4f6;
+    --border: #444;
+    --glass: rgba(26, 26, 26, 0.7);
+}
+
+/* Container with Glassmorphism Effect (Merged) */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--glass);
+    /* Overwrites rgba(30,30,30,0.8) */
+    backdrop-filter: blur(15px);
+    /* Overwrites blur(10px) */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    /* Overwrites previous shadow */
+    border: 1px solid var(--border);
+}
+
+/* Heading */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls input {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.controls input:focus {
+    border-color: #6200ee;
+    box-shadow: 0 0 8px rgba(98, 0, 238, 0.5);
+}
+
+/* Button Group & Buttons */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    /* Will be adjusted in mobile media query */
+}
+
+/* Merged Button Styling */
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #2a2a2a, #1e1e1e);
+    color: #e0e0e0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 2px 2px 6px #181818, -2px -2px 6px #303030;
+}
+
+.btn:hover {
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    /* Taken from first hover */
+    transform: translateY(-2px);
+    /* Taken from second hover */
+    box-shadow: 4px 4px 10px #181818, -4px -4px 10px #303030;
+}
+
+/* Task List */
+#taskList {
+    list-style: none;
+    overflow: hidden;
+}
+
+/* Merged Task List Items */
+#taskList li {
+    margin: 8px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    gap: 1rem;
+    padding: 1.25rem;
+    /* Overwrites earlier 12px padding */
+    background: linear-gradient(180deg, #1e1e1e, #2a2a2a);
+    /* Overwrites background-color */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.4s ease forwards;
+    /* Overrides fadeIn animation */
+}
+
+#taskList li:hover {
+    transform: translateX(5px);
+    /* Retained from first hover rule */
+    background: linear-gradient(180deg, #2a2a2a, #333333);
+    /* Overwrites earlier hover background */
+}
+
+/* Buttons Inside Task Items */
+#taskList li button {
+    margin-left: 5px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#taskList li button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+}
+
+/* Completed Task Styling */
+.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #2a2a2a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for Mobile (Merged) */
+@media (max-width: 480px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls input {
+        width: 100%;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
