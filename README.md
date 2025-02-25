@@ -1,6 +1,8 @@
 ```markdown
 # Task Manager ✨
 
+# Live Link : https://task-manager-chi-sooty.vercel.app
+
 Task Manager is a lightweight, modern task management web application built with HTML, CSS, and JavaScript. It provides an intuitive interface for creating, organizing, and managing your daily tasks. With a sleek glassmorphism design and smooth animations, Task Manager enhances your productivity while keeping the experience visually appealing.
 
 ## Features
